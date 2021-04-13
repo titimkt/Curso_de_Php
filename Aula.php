@@ -1,9 +1,18 @@
+<?php
 
-Thiago
+echo "Olá mundo";
 
-Thiago Sacchett
+echo "<br>";
 
+phpinfo();
+echo "nosso teste de conflito!";
+echo "nosso teste de conflito!";
+echo "nosso teste de conflito!";
+echo "nosso teste de conflito!";
+echo "nosso teste de conflito!";
+echo "nosso teste de conflito!";
+echo "nosso teste de conflito!";
 
+echo "simulando um conflito!";
 
-echo Olá mundo
-Agora to alterando no DEV
+echo "criamos o branch DEV";
