@@ -31,10 +31,12 @@
       margin-bottom: auto;
       background-color: rgba(0,0,0,0.5) !important;
       padding: 25px;
+      width: 400px;
     }
     
     .form-login-header {
       color: #ffffff;
+      margin-bottom: 25px;
     }
 
     .form-login-body-conected {
@@ -60,7 +62,13 @@
 
     .form-login-fotter {
       color: #999999;
+      margin-top: 25px;
     }
+
+    .form-login-fotter a {
+      color: #ffffff;
+    }
+
   </style>
 </head>
 
@@ -69,10 +77,8 @@
 <div class="container">
   <div class="d-flex justify-content-center h-100">
     <div class="form-login">
-      <div class="form-login-header">
-        <h4>
-          Acesse sua conta!
-        </h4>
+      <div class="fs-4 form-login-header">
+        Acesse sua conta!
       </div>
       <div class="form-login-body">
         <form>
@@ -93,15 +99,16 @@
                   </label>
                 </div>
                 <div>
-                  <input class="btn float-right form-login-body-button" value="Acessar conta" type="submit">
+                  <input class="btn text-end form-login-body-button" value="Acessar conta" type="submit">
                 </div>
             </div>
           </div>
         </form>
       </div>
-      <div class="form-login-fotter">
-        Não possui conta ainda? Crie sua conta!
-        Esqueceu sua senha?
+      <div class="text-center form-login-fotter">
+        Ainda não possui uma conta? <a href="#">Crie agora!</a>
+        <br />
+        <a href="#">Esqueceu a sua senha?</a>
       </div>      
     </div>
   </div>
