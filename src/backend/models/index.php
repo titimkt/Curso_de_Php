@@ -26,10 +26,4 @@ class pessoa {
      public $Sobrenome = "";
      public $Idade = "";
      private $Endereco = "Teste";
-
-     function MostrarSalario () {
-          echo $this.$Endereco;
-     }
 }
-
-$xyz
