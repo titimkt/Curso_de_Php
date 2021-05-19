@@ -33,7 +33,20 @@ function ValidarForm () {
 $(document).ready(function() {
 
    var TabelaUsuarios = $("#IdTabelaUsuarios");
-   MontarTabela()
+   MontarTabela();
+
+   function DadosTabela() {
+      var DadosTarefa = [];
+
+      var DadosTarefa = [
+         { ID: 1, Nome: "Mark", Sobrenome: "Otto", Usuario: "@mdo", Cidade: "Garibaldi", Estado: "Rio Grande do Sul"},
+         { ID: 2, Nome: "Jacob", Sobrenome: "Thornton", Usuario: "@fat", Cidade: "Curitiba", Estado: "Paraná"},
+         { ID: 3, Nome: "Larry", Sobrenome: "Bird", Usuario: "@twitter", Cidade: "Penha", Estado: "Santa Catarina"},
+      ];
+
+      return DadosTarefa;
+
+   }
    
    function MontarTabela() {
       var Cabecalho = MontarCabecalhoTabela();
@@ -75,24 +88,6 @@ $(document).ready(function() {
                '<td>Rio Grande do Sul</td>' +
                '<td><button type="button" class="btn btn-outline-warning">Editar</button>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-outline-danger">Excluir</button>' +
                '</td>' +
-            '</tr>' +
-            '<tr>' +
-               '<td>2</td>' +
-               '<td>Jacob</td>' +
-               '<td>Thornton</td>' +
-               '<td>@fat</td>' +
-               '<td>Curitiba</td>' +
-               '<td>Paraná</td>' +
-               '<td><button type="button" class="btn btn-outline-warning">Editar</button>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-outline-danger">Excluir</button>' +
-            '</tr>' +
-            '<tr>' +
-               '<td>3</td>' +
-               '<td>Larry</td>' +
-               '<td>the Bird</td>' +
-               '<td>@twitter</td>' +
-               '<td>Penha</td>' +
-               '<td>Santa Catarina</td>' +
-               '<td><button type="button" class="btn btn-outline-warning">Editar</button>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-outline-danger">Excluir</button>' +
             '</tr>' +
          '</tbody>'
       );
