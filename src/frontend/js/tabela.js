@@ -38,7 +38,7 @@ $(document).ready(function() {
    function DadosTabela() {
       var DadosTarefa = [];
 
-      var DadosTarefa = [
+      DadosTarefa = [
          { ID: 1, Nome: "Mark", Sobrenome: "Otto", Usuario: "@mdo", Cidade: "Garibaldi", Estado: "Rio Grande do Sul"},
          { ID: 2, Nome: "Jacob", Sobrenome: "Thornton", Usuario: "@fat", Cidade: "Curitiba", Estado: "Paraná"},
          { ID: 3, Nome: "Larry", Sobrenome: "Bird", Usuario: "@twitter", Cidade: "Penha", Estado: "Santa Catarina"},
