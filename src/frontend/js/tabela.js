@@ -32,19 +32,46 @@ function ValidarForm () {
 
 $(document).ready(function() {
 
+   var DadosUsuariosAtual = DadosTabela();
    var TabelaUsuarios = $("#IdTabelaUsuarios");
    MontarTabela();
 
-   function DadosTabela() {
-      var DadosTarefa = [];
+   $(".btn-editar").on("click", function () {
+		var $botaoEditar = $(this);
 
-      DadosTarefa = [
-         { ID: 1, Nome: "Mark", Sobrenome: "Otto", Usuario: "@mdo", Cidade: "Garibaldi", Estado: "Rio Grande do Sul"},
-         { ID: 2, Nome: "Jacob", Sobrenome: "Thornton", Usuario: "@fat", Cidade: "Curitiba", Estado: "Paraná"},
-         { ID: 3, Nome: "Larry", Sobrenome: "Bird", Usuario: "@twitter", Cidade: "Penha", Estado: "Santa Catarina"},
+		console.log("O botão clicado foi: ", $botaoEditar.text(), " valor: ", $botaoEditar.val());
+	});
+
+	$('#IdTabelaUsuarios').on('click', '.btn-excluir', function (e) {
+		e.preventDefault();
+		var $botaoExcluir = $(this);
+
+		console.log("O botão clicado foi: ", $botaoExcluir.text(), " valor: ", $botaoExcluir.val());
+
+      var NovosDados = [];
+
+		$.each(DadosUsuariosAtual, function(idx, DadosUsuario) {
+			if (DadosUsuario.ID != $botaoExcluir.val()) {
+				NovosDados.push(DadosUsuario);
+			}
+		});
+
+		DadosUsuariosAtual = NovosDados;
+		MontarTabela();
+
+		// $botaoExcluir.closest('tr').remove();
+	});
+
+   function DadosTabela() {
+      var DadosUsuarios = [];
+
+      DadosUsuarios = [
+         { ID: 1, Nome: "Mark", Sobrenome: "Otto", Usuario: "@mdo", Cidade: "Garibaldi", Estado: "Rio Grande do Sul" },
+         { ID: 2, Nome: "Jacob", Sobrenome: "Thornton", Usuario: "@fat", Cidade: "Curitiba", Estado: "Paraná" },
+         { ID: 3, Nome: "Larry", Sobrenome: "Bird", Usuario: "@twitter", Cidade: "Penha", Estado: "Santa Catarina" },
       ];
 
-      return DadosTarefa;
+      return DadosUsuarios;
 
    }
    
@@ -77,20 +104,28 @@ $(document).ready(function() {
    }
 
    function MontarCorpoTabela() {
-      var Corpo = (
-         '<tbody>' +
-            '<tr>' +
-               '<td>1</td>' +
-               '<td>Mark</td>' +
-               '<td>Otto</td>' +
-               '<td>@mdo</td>' +
-               '<td>Garibaldi</td>' +
-               '<td>Rio Grande do Sul</td>' +
-               '<td><button type="button" class="btn btn-outline-warning">Editar</button>&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-outline-danger">Excluir</button>' +
+      var Corpo = '<tbody>';
+      var DadosUsuarios = DadosUsuariosAtual;
+   
+         $.each(DadosUsuarios, function(idx, DadosUsuario) {
+            Corpo += (
+            '<tr>'+
+               '<td>' + DadosUsuario.ID + '</td>' +
+               '<td>' + DadosUsuario.Nome + '</td>' +
+               '<td>' + DadosUsuario.Sobrenome + '</td>' +
+               '<td>' + DadosUsuario.Usuario + '</td>' +
+               '<td>' + DadosUsuario.Cidade + '</td>' +
+               '<td>' + DadosUsuario.Estado + '</td>' +
+               '<td>' +
+                  '<button type="button" class="btn btn-outline-warning btn-editar" value=' + DadosUsuario.ID + '>Editar</button>' +
+                  '&nbsp;&nbsp;&nbsp;' +
+                  '<button type="button" class="btn btn-outline-danger btn-excluir" value=' + DadosUsuario.ID + '>Excluir</button>' +
                '</td>' +
-            '</tr>' +
-         '</tbody>'
-      );
+            '</tr>'
+            );
+         });
+   
+         Corpo += '</tbody>';
 
       return Corpo;
 
