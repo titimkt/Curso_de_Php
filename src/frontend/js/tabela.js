@@ -18,7 +18,7 @@ $(document).ready(function() {
             Estado: $("#Estado").val(),
          };
 
-         $.post( "test.php", DadosUsuarioSubmit)
+         $.post( "../../backend/controllers/UsuariosController.php", DadosUsuarioSubmit)
 				.done(function( response ) {
 					
 					alert( "CallBack do DONE vinda do PHP (response): " + response );
