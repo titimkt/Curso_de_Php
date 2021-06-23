@@ -1,3 +1,10 @@
+<?php
+
+$x = 0;
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
