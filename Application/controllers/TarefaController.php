@@ -4,16 +4,19 @@ use Application\core\controller\Controller;
 use Application\core\controller\IBaseController;
 use Application\core\exception\MyException;
 
-class TarefaController extends Controller implements IBaseController {
+class TarefaController extends Controller implements IBaseController
+{
 
 	protected $tarefasModel = null;
 
-	public function __construct() {
+	public function __construct()
+	{
 		$this->tarefasModel = $this->model('TarefaModel');
 	}
 
 	// index == listarTodos
-	public function index() {
+	public function index()
+	{
 		$data["paginaMeio"] = "tarefas/tarefaView";
 		$data["dados"] = $this->tarefasModel->listarTodos();
 		$this->view("PrincipalView", $data);
@@ -21,7 +24,8 @@ class TarefaController extends Controller implements IBaseController {
 
 	// Métodos padrão conhecidos como CRUD (Create, Read, Update e Delete).
 
-	public function listar($id = 0) {
+	public function listar(int $id = 0)
+	{
 		try {
 			$idInvalido = (!is_numeric($id) || $id <= 0);
 
@@ -39,7 +43,8 @@ class TarefaController extends Controller implements IBaseController {
 		exit();
 	}
 
-	public function criar($dados = []) {
+	public function criar(array $dados)
+	{
 		$dados = $_REQUEST; // obtém os dados do front.
 
 		$this->validarTarefa($dados);
@@ -47,19 +52,22 @@ class TarefaController extends Controller implements IBaseController {
 		return $this->tarefasModel->criar($dados);
 	}
 
-	public function atualizar($dados = []) {
+	public function atualizar(array $dados)
+	{
 		echo json_encode(["mensagem" => "ola mundo"]);
 		exit;
 	}
 
-	public function excluir($id = 0) {
+	public function excluir(int $id = 0)
+	{
 		echo json_encode(["mensagem" => "ola mundo"]);
 		exit;
 	}
 
 	// Fim CRUD.
 
-	private function validarTarefa($dados) {
+	private function validarTarefa($dados)
+	{
 		try {
 			foreach ($dados as $chave => $valor) {
 
@@ -75,5 +83,4 @@ class TarefaController extends Controller implements IBaseController {
 			die();
 		}
 	}
-
 }

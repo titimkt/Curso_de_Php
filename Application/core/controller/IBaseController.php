@@ -2,7 +2,8 @@
 
 namespace Application\core\controller;
 
-interface IBaseController {
+interface IBaseController
+{
 
 	public function criar(array $dados);
 
@@ -11,5 +12,4 @@ interface IBaseController {
 	public function atualizar(array $dados);
 
 	public function excluir(int $id);
-
 }

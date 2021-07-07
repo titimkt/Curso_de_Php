@@ -4,17 +4,20 @@ namespace Application\core\database;
 
 use Application\core\exception\TraitExceptionJSON;
 
-class ConexaoBanco {
+class ConexaoBanco
+{
 	use TraitExceptionJSON;
 
 	protected $conexao = null;
 	protected $nomeBanco = "";
 
-	public function __construct() {
+	public function __construct()
+	{
 		$this->conectar();
 	}
 
-	private function conectar() {
+	public function conectar()
+	{
 		try {
 			$configurarBanco = new ConfigurarBanco();
 			$this->nomeBanco = $configurarBanco->obterNomeBanco();
@@ -37,7 +40,8 @@ class ConexaoBanco {
 		}
 	}
 
-	public function fecharConexao() {
+	public function fecharConexao()
+	{
 		try {
 			mysqli_close($this->conexao);
 		} catch (\Exception $error) {
@@ -46,12 +50,13 @@ class ConexaoBanco {
 		}
 	}
 
-	public function obterConexao() {
+	public function obterConexao()
+	{
 		return $this->conexao;
 	}
 
-	public function obterNomeBanco() {
+	public function obterNomeBanco()
+	{
 		return $this->nomeBanco;
 	}
-
 }

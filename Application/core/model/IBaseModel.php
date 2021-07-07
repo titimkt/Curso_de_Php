@@ -2,14 +2,14 @@
 
 namespace Application\core\model;
 
-interface IBaseModel {
+interface IBaseModel
+{
 
-	public function criar(array $dados);
+	public function criar($dados);
 
-	public function listar(int $id);
+	public function listar($id);
 
-	public function atualizar(array $dados);
+	public function atualizar($dados);
 
-	public function excluir(int $id);
-
+	public function excluir($id);
 }

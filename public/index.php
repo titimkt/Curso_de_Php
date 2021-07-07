@@ -8,7 +8,7 @@
 
   use Application\core\App;
 
-	$app = new App();
+  $app = new App();
 
   // php -S localhost:8080 -t public/
 
